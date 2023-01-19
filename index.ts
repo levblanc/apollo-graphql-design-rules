@@ -11,7 +11,26 @@ const typeDefs = `#graphql
     color: String!
     make: String!
   }
+
+  type ManualGroup {
+    Image
+    [GroupMembership]
+  }
+
+  type AutomaticGroup {
+    Image
+    [GroupMembership]
+    [AutomaticGroupFeatures]
+  }
+
+  type AutomaticGroupFeatures {}
+
+  type GroupMembership {
+    Group
+    Car
+  }
 `;
+
 const resolvers = {
   Query: {
     cars: () => [{ id: 1, color: 'blue', make: 'Toyota' }],
