@@ -14,21 +14,16 @@ const typeDefs = `#graphql
 
   type ManualGroup {
     Image
-    [GroupMembership]
+    [Car]
   }
 
   type AutomaticGroup {
     Image
-    [GroupMembership]
+    [Car]
     [AutomaticGroupFeatures]
   }
 
   type AutomaticGroupFeatures {}
-
-  type GroupMembership {
-    Group
-    Car
-  }
 `;
 
 const resolvers = {
