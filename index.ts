@@ -13,12 +13,18 @@ const typeDefs = `#graphql
   }
 
   type Group {
-    Image
-    [Car]
-    [GroupFeatures]
+    id: ID!
+    name: String!
+    imageId: ID!
+    bodyHtml: String!
+    cars: [Car!]!
+    features: [GroupFeatures!]!
+    applyFeaturesSeparately: Boolean!
   }
 
-  type GroupFeatures {}
+  type GroupFeatures {
+    feature: String!
+  }
 `;
 
 const resolvers = {
