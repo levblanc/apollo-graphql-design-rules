@@ -18,12 +18,16 @@ const typeDefs = `#graphql
     imageId: ID!
     bodyHtml: String!
     cars: [Car!]!
-    features: [GroupFeatures!]!
-    applyFeaturesSeparately: Boolean!
+    groupFeatureSet: GroupFeatureSet      
   }
 
   type GroupFeatures {
     feature: String!
+  }
+
+  type GroupFeatureSet {
+    features: [GroupFeatures!]!
+    applyFeaturesSeparately: Boolean!
   }
 `;
 
