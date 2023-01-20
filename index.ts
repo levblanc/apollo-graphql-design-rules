@@ -27,12 +27,20 @@ const typeDefs = `#graphql
   }
 
   type GroupFeatures {
-    feature: String!
+    feature: GroupFeatureFields!
   }
 
   type GroupFeatureSet {
     features: [GroupFeatures!]!
     applyFeaturesSeparately: Boolean!
+  }
+
+  enum GroupFeatureFields {
+    INCLINE_ENGINE
+    FOUR_CYLINDER_ENGINE
+    TWIN_CYLINDER_ENGINE
+    RED_PAINT
+    BLACK_PAINT
   }
 `;
 
