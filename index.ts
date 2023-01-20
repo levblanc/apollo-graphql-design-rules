@@ -12,6 +12,8 @@ const typeDefs = `#graphql
     update
     publish
     unpublish
+    addCars
+    removeCars
   }
 
   type Car {
