@@ -15,10 +15,15 @@ const typeDefs = `#graphql
   type Group {
     id: ID!
     name: String!
-    imageId: ID!
+    image: Image
     bodyHtml: String!
     cars(skip: Int!, take: Int!): [Car!]!
     groupFeatureSet: GroupFeatureSet      
+  }
+
+  type Image {
+    id: ID!
+    url: String!
   }
 
   type GroupFeatures {
