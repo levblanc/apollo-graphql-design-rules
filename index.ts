@@ -16,7 +16,7 @@ const typeDefs = `#graphql
     id: ID!
     name: String!
     image: Image
-    bodyHtml: String!
+    description: String!
     cars(skip: Int!, take: Int!): [Car!]!
     groupFeatureSet: GroupFeatureSet      
   }
