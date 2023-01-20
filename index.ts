@@ -9,16 +9,33 @@ const typeDefs = `#graphql
   type Mutation {
     groupCreate(
       gourpInput: GroupInput!
-    ): Group!
+    ): groupCreateResponse
     groupDelete(groupId: ID!): Boolean!
     groupUpdate(
       groupId: ID!,
       groupInput: GroupInput!
-    ): Group!
+    ): groupUpdateResponse!
     groupPublish(groupId: ID!): Boolean!
     groupUnpublish(groupId: ID!): Boolean!
     groupAddCars(groupId: ID!, carId: ID!): [Car]!
     groupRemoveCars(groupId: ID!, carId: ID!): Boolean!
+  }
+
+  type Error {
+    message: String!
+    field: [String!]!
+  }
+
+  # use groupCreate & groupUpdate as example  
+  # not updating other mutation response
+  type groupCreateResponse {
+    errors: [Error!]!
+    group: Group
+  }
+
+  type groupUpdateResponse {
+    errors: [Error!]!
+    group: Group
   }
 
   input GroupInput {
