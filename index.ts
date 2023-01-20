@@ -6,6 +6,14 @@ const typeDefs = `#graphql
     cars: [Car!]!
   }
 
+  type Mutation {
+    create
+    delete
+    update
+    publish
+    unpublish
+  }
+
   type Car {
     id: ID!
     color: String!
