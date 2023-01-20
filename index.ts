@@ -7,13 +7,22 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    create
-    delete
-    update
-    publish
-    unpublish
-    addCars
-    removeCars
+    groupCreate(
+      name: string!, 
+      image: ImageInput, 
+      description: String!, 
+      groupFeatureSet: GroupFeatureSet
+    )
+    groupDelete(groupId: ID!)
+    groupUpdate
+    groupPublish(groupId: ID!)
+    groupUnpublish(groupId: ID!)
+    groupAddCars(groupId: ID!, carId: ID!)
+    groupRemoveCars(groupId: ID!, carId: ID!)
+  }
+
+  type ImageInput {
+    url: String!
   }
 
   type Car {
