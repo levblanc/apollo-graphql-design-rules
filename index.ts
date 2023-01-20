@@ -8,20 +8,27 @@ const typeDefs = `#graphql
 
   type Mutation {
     groupCreate(
-      name: string!, 
-      image: ImageInput, 
-      description: String!, 
-      groupFeatureSet: GroupFeatureSet
-    )
-    groupDelete(groupId: ID!)
-    groupUpdate
-    groupPublish(groupId: ID!)
-    groupUnpublish(groupId: ID!)
-    groupAddCars(groupId: ID!, carId: ID!)
-    groupRemoveCars(groupId: ID!, carId: ID!)
+      gourpInput: GroupInput!
+    ): Group!
+    groupDelete(groupId: ID!): Boolean!
+    groupUpdate(
+      groupId: ID!,
+      groupInput: GroupInput!
+    ): Group!
+    groupPublish(groupId: ID!): Boolean!
+    groupUnpublish(groupId: ID!): Boolean!
+    groupAddCars(groupId: ID!, carId: ID!): [Car]!
+    groupRemoveCars(groupId: ID!, carId: ID!): Boolean!
   }
 
-  type ImageInput {
+  input GroupInput {
+    name: String, 
+    image: ImageInput, 
+    description: String, 
+    featureSet: GroupFeatureFields
+  }
+
+  input ImageInput {
     url: String!
   }
 
